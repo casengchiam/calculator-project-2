@@ -1,0 +1,61 @@
+# 1. Testing the handling of parentheses
+# -> non matching
+2 + (5 * 2; # EXPECTING )
+2 + (5 * 2)); # NO OUTPUT
+# -> matching 
+2 + (5 * 2); # WORKS
+
+# 2. Testing the handling of large/small floating point
+# -> large only floats
+3.678943543512343241863274621809712048621973471823548612374901273402141234 + 6.78943543512343241863274621809712048621973471823548612374901273402141234;
+# -> large and small floats/ints
+3.678943543512343241863274621809712048621973471823548612374901273402141234 + 1;
+3.678943543512343241863274621809712048621973471823548612374901273402141234 + 1.2;
+
+# 3. Testing PEMDAS
+# -> testing same expression but without parentheses
+4 + 6 * 4 / 6 - 2;
+4 + ((6 * 4) / (6-2));
+
+# 4. Testing invalid tokens
+# -> bad token
+4 @ 2;
+4 ! 2;
+
+# 5. Testing negatives
+# -> negative and positive values expression
+-3.6 + 2.0;
+# -> multiple negatives on one numbers
+---2.0 + 3.0;
+# -> all negative expression
+- 2.0 - -3.0;
+
+# 6. Testing non-valid math expressions
+# -> dividing by 0
+3 / 0;
+# -> modulo by 0
+2 % 0;
+
+# 7. Testing too many spaces between characters, no spaces between characters
+# -> testing symbolic variables without putting white space
+pi*7+9;
+# -> having too much white space in an expression 
+pi          *           2;
+# -> whitespace between characters w/o an operator
+pi 7 + 9;
+9 8 + 9;
+
+# 8. symbolic variables mixed with other tokens w/o whitespace 
+# -> symbolic variable followed by alpha token
+pia * 2;
+# -> symbolic variable followed by numeric token
+pi3 * 2;
+
+# 9. updating variables after first use
+x = 7;
+2 * x;
+x = 4;
+2 * x;
+
+# 10. quit
+q;
